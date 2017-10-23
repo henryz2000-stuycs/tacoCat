@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+    <form method="POST" action="/auth">
+      Username: <input type="text" name="user">
+      <br>
+      Password: <input type="password" name="pw">
+      <br>
+      <input type="submit" value="Login" name="submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h2>Welcome {{ user }}</h2>
+<form method="POST" action="/logout">
+  <input type="submit" name="logout" value="Log Out">
+</form>
+{% endblock %}
