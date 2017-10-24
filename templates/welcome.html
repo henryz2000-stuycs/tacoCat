@@ -2,6 +2,19 @@
 
 {% block body %}
 <h2>Welcome {{ user }}</h2>
+
+<form method="POST" action="/createstory">
+  <input type="submit" name="createstory" value="Create a Story!">
+</form>
+
+<form method="POST" action="/editstory">
+  <input type="submit" name="editstory" value="Edit Stories!">
+</form>
+
+<form method = "POST" action="/viewstory">
+  <input type="submit" name="viewstory" value="View Stories!">
+</form>
+
 <form method="POST" action="/logout">
   <input type="submit" name="logout" value="Log Out">
 </form>
