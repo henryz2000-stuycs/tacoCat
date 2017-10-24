@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+    <form method="POST" action="/createaccount">
+      Username: <input type="text" name="user">
+      <br>
+      Password: <input type="password" name="pw">
+      <br>
+      <input type="submit" value="Login" name="submit">
+    </form>
+
+    <form action="/">
+      <input type="submit" value="Back to Login Page">
+    </form>
+    
+{% endblock %}

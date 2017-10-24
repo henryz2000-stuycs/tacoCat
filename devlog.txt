@@ -1,3 +1,6 @@
 henryZ -- 2017-10-22 20:44:23
 added design.pdf and devlog.txt
 
+henryZ -- 2017-10-24 00:21:27
+login and register complete
+
