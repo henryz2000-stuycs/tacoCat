@@ -113,12 +113,22 @@ def auth():
 
 @form_site.route('/editstory', methods=['POST'])
 def edit_story():
-    print request.form
-    print "TTTTTTTTT"
-    print request.form['id']
+    #print request.form
+    #print "TTTTTTTTT"
+    #print request.form['id']
+    #c.execute("DELETE FROM history WHERE contribution='hello';")
     c.execute("INSERT INTO history VALUES ('%s', %s, '%s');" %(session['user'], request.form['id'], request.form['contribution']))
-    c.execute("UPDATE stories SET ")
-    print "################################################################"
+    #c.execute("DELETE FROM 
+    print "##########################################################"
+    print stories[int(request.form['id'])]["fullstory"]
+    print request.form['contribution']
+    print stories[int(request.form['id'])]["fullstory"] + request.form['contribution']
+    print "##########################################################"
+    c.execute("UPDATE stories SET fullstory='%s' WHERE id=%s;" %(stories[int(request.form['id'])]["fullstory"] + request.form['contribution'], request.form['id']))
+    c.execute("UPDATE stories SET previousupdate='%s' WHERE id=%s;" %(request.form['contribution'], request.form['id']))
+    db.commit()
+    #INSERT FLASH HERE***************************************
+    return redirect( url_for('welcome') )
     
 @form_site.route('/choseneditstory', methods=['POST'])
 def chosen_edit_story():
