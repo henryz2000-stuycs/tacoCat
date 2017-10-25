@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+story_id:
+<textarea rows="2" cols="2" name="id" form="form" readonly="readonly">
+  {{id}}
+</textarea>
+<br>
+<br>
+
+Previous line of story:
+<br>
+<i>{{previous}}</i>
+<br>
+<br>
+<textarea rows="4" cols="50" placeholder="Enter next line of story here..." name="contribution" form="form"></textarea>
+<form method="POST" id="form" action="/editstory">
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

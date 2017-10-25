@@ -3,9 +3,13 @@
 
 {% block body %}
 
-<form action="/choseneditstory">
+<form method="POST" action="/choseneditstory">
   {% for all in new.keys() %}
-  <input type="submit" value={{all["title"]}} name={{all["title"]}}>
+  <!--{{ new[all] }}
+  <input type="submit" value={{ "%s" %(new[all]) }} name={{ "%s" %(new[all]) }}>
+  -->
+  <input type="submit" value={{ new[all].replace(" ", "_") }} name={{all}}>
+  <!--{{new[all]}}-->
   {% endfor %}
 </form>
 

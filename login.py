@@ -113,18 +113,43 @@ def auth():
 
 @form_site.route('/editstory', methods=['POST'])
 def edit_story():
-    pass
-
+    print request.form
+    print "TTTTTTTTT"
+    print request.form['id']
+    c.execute("INSERT INTO history VALUES ('%s', %s, '%s');" %(session['user'], request.form['id'], request.form['contribution']))
+    c.execute("UPDATE stories SET ")
+    print "################################################################"
+    
 @form_site.route('/choseneditstory', methods=['POST'])
 def chosen_edit_story():
-    return render_template("edit_story.html")
+    #print request.form.keys()[0]
+    #print request.form.values()[0]
+    #print stories
+    #print stories[request.form.keys()[0]]
+    previous = stories[int(request.form.keys()[0])]["previousupdate"]
+    print previous
+    id = int(request.form.keys()[0])
+    print "----------"
+    print id
+    print "----------"
+    return render_template("edit_story.html", id=id, title="Edit %s" %request.form.values()[0], previous=previous)
 
 @form_site.route('/chooseeditstory', methods=['POST'])
 def choose_edit_story():
     new = {}
-    for story in history.keys():
-        if session['user'] not in story.keys():
-            new[story] = stories[story][title]
+    #print history
+    for story in stories.keys():
+        '''
+        print "===================="
+        print story
+        print session['user']
+        print history[story].keys()
+        print "===================="
+        '''
+        if session['user'] not in history[story].keys():
+            #new[story] = stories[story]["title"].replace(" ", "_")
+            new[story] = stories[story]["title"]
+    print new
     return render_template('list.html', title="Edit Stories!", new=new)
 
 @form_site.route('/welcome')

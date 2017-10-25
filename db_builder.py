@@ -15,7 +15,8 @@ insert_history = "INSERT INTO history VALUES ('test', 0, 'hi');"
 insert_history0 = "INSERT INTO history VALUES ('test0', 0, 'hi0');"
 insert_stories = "INSERT INTO stories VALUES (0, 'blah', 'hi\nhi0', 'hi0');"
 
-insert_newstory = "INSERT INTO stories VALUES (1, 'new title', 'new', '')"
+insert_history1 = "INSERT INTO history VALUES ('test0', 1, 'new');"
+insert_newstory = "INSERT INTO stories VALUES (1, 'new title', 'new', 'new')"
 
 try:
     c.execute(create_users)
@@ -29,6 +30,8 @@ try:
     c.execute(insert_history0)
 
     c.execute(insert_newstory)
+
+    c.execute(insert_history1)
 except:
     pass
 
