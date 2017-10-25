@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<form action="/choseneditstory">
+  {% for all in new.keys() %}
+  <input type="submit" value={{all["title"]}} name={{all["title"]}}>
+  {% endfor %}
+</form>
+
+{% endblock %}
