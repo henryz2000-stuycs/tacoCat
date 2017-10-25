@@ -7,3 +7,6 @@ login and register complete
 gordonL -- 2017-10-24 20:51:33
 added style.css which holds the not finished side bar
 
+henryZ -- 2017-10-25 01:25:19
+updated database structure. worked on edit story
+
