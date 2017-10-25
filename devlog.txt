@@ -4,3 +4,6 @@ added design.pdf and devlog.txt
 henryZ -- 2017-10-24 00:21:27
 login and register complete
 
+gordonL -- 2017-10-24 20:51:33
+added style.css which holds the not finished side bar
+
