@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+body {
+    background-image: ; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100% 
+}
+
+nav.topBar li{
+    list-style: none;
+    float:left;
+    background-color: #333;
+    text-align:center; 
+}
+
+nav.topBar li:hover{
+    background-color: yellowgreen
+}
+
+.button {
+    width: 140px;
+    height: 40px;
+    font: bold 12px Times;
+    text-decoration: none; 
+    background-color: #eeeeee;
+    color: #eeeeee;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #333333;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #333333;
+}
+
+
