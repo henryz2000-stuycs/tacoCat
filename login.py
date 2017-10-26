@@ -176,13 +176,15 @@ def logout():
         session.pop('user')
     return redirect( url_for('root') )
 
-@form_site.route('/createstoryhome', methods=['POST'])
+@form_site.route('/createstoryhome', methods=['POST', 'GET'])
 def newstory():
     return render_template('create_story.html')
 
 @form_site.route('/createstory', methods=['POST', 'GET'])
 def create():
-    if 'user' in session:
+    if 'user' not in session:
+        flash("You must log in to create a story")
+    else:
         title = request.form["title"]
         line = request.form["firstline"]
         last_entry = c.execute("SELECT * FROM stories WHERE ID = (SELECT MAX(ID) FROM stories);")
@@ -194,8 +196,6 @@ def create():
             new_entry = c.execute("INSERT into stories VALUES ('%s','%s', '%s', '%s');" %(id, title, line, line))
             update_history = c.execute("INSERT into history VALUES ('%s', '%s', '%s');" %(session['user'], id, line))
             flash("Your story was succesfully created!")
-    else:
-        flash("You must log in to create a story")
     return redirect(url_for('welcome'))
 
 
