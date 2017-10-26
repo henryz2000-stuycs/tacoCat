@@ -191,7 +191,8 @@ def create():
             #print id
             #successfully updates stories database
         with db:
-            new_entry = c.execute("INSERT into stories VALUES ('%s','%s', '%s', 'new');" %(id, title, line))
+            new_entry = c.execute("INSERT into stories VALUES ('%s','%s', '%s', '%s');" %(id, title, line, line))
+            update_history = c.execute("INSERT into history VALUES ('%s', '%s', '%s');" %(session['user'], id, line))
             flash("Your story was succesfully created!")
     else:
         flash("You must log in to create a story")
@@ -204,7 +205,7 @@ def viewstory():
     htmlbody = "<li>"
     for story in all_stories:
         title = story[1]
-        htmlbody += "<a href='%s' %s </a></li>\n" %("null", title)
+        #htmlbody += "<a href='%s' %s </a></li>\" %("null", title)
     return render_template("view_stories.html", story_selection = htmlbody)
 
 

@@ -7,14 +7,20 @@
 
 Select a story to view!
 <br>
-<i>{{previous}}</i>
 
-<div class="dropdown">
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    {{story_selection}}
-  </ul>
-</div>
+<form method="POST" action="/v">
+  {% for all in new.keys() %}
+  <!--{{ new[all] }}
+  <input type="submit" value={{ "%s" %(new[all]) }} name={{ "%s" %(new[all]) }}>
+  -->
+  <input type="submit" value={{ new[all].replace(" ", "_") }} name={{all}}>
+  <!--{{new[all]}}-->
+  {% endfor %}
+
+</form>
+
+{% endblock %}
+
 
 <form method="POST" id="form" action="/selectedstory">
   <input type="submit" value="Submit">
