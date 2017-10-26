@@ -13,3 +13,6 @@ updated database structure. worked on edit story
 gordonL -- 2017-10-26 12:02:58
 updated stylesheet with better looking text field
 
+henryZ -- 2017-10-26 14:12:06
+finished edit story
+
