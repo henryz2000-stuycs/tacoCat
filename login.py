@@ -127,6 +127,7 @@ def edit_story():
     c.execute("UPDATE stories SET fullstory='%s' WHERE id=%s;" %(stories[int(request.form['id'])]["fullstory"] + request.form['contribution'], request.form['id']))
     c.execute("UPDATE stories SET previousupdate='%s' WHERE id=%s;" %(request.form['contribution'], request.form['id']))
     db.commit()
+    flash("Story edited.")
     #INSERT FLASH HERE***************************************
     return redirect( url_for('welcome') )
 

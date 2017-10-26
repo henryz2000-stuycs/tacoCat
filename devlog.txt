@@ -15,3 +15,6 @@ updated stylesheet with better looking text field
 
 angelicaZ -- 2017-10-26 13:49:16
 updated create story, should be working correctly now
+
+henryZ -- 2017-10-26 14:12:06
+finished edit story

@@ -13,7 +13,7 @@ insert_admin = "INSERT INTO users VALUES ('test', 'test');"
 insert_admin0 = "INSERT INTO users VALUES ('test0', 'test0');"
 insert_history = "INSERT INTO history VALUES ('test', 0, 'hi');"
 insert_history0 = "INSERT INTO history VALUES ('test0', 0, 'hi0');"
-#insert_stories = "INSERT INTO stories VALUES (0, 'blah', 'hi\nhi0', 'hi0');"
+insert_stories = "INSERT INTO stories VALUES (0, 'blah', 'hi\nhi0', 'hi0');"
 
 insert_history1 = "INSERT INTO history VALUES ('test0', 1, 'new');"
 insert_newstory = "INSERT INTO stories VALUES (1, 'new title', 'new', 'new')"
