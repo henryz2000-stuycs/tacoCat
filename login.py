@@ -21,7 +21,7 @@ for data in user_data:
     users[data[0]] = data[1]
 
 #print users
-    
+
 history = {} #{id: {username: contribution}}
 history_data = c.execute("SELECT * FROM history;")
 
@@ -30,10 +30,10 @@ for data in history_data:
         history[data[1]][data[0]] = data[2]
     except:
         history[data[1]] = {data[0]: data[2]}
-        
+
 #print history
 
- 
+
 stories = {} #{id: {title: title, fullstory: fullstory, previousupdate: previousupdate}}
 stories_data = c.execute("SELECT * FROM stories;")
 
@@ -60,7 +60,7 @@ def check_newuser(username):
     if username in users.keys():
         return BAD_USER
     return SUCCESS
-    
+
 @form_site.route('/')
 def root():
     if 'user' not in session:
@@ -93,12 +93,12 @@ def create_account():
         flash("Bad Username. Try another one")
         return redirect(url_for('register'))
     return redirect(url_for('root'))
-    
+
 @form_site.route('/auth', methods=['POST'])
 def auth():
     username = request.form['user']
     password = request.form['pw']
-    
+
     result = authenticate(username, password)
 
     if result == SUCCESS:
@@ -119,7 +119,7 @@ def edit_story():
     c.execute("INSERT INTO history VALUES ('%s', %s, '%s');" %(session['user'], request.form['id'], request.form['contribution']))
     c.execute("UPDATE stories SET ")
     print "################################################################"
-    
+
 @form_site.route('/choseneditstory', methods=['POST'])
 def chosen_edit_story():
     #print request.form.keys()[0]
@@ -165,7 +165,28 @@ def logout():
         flash(session['user'] + " logged out.")
         session.pop('user')
     return redirect( url_for('root') )
-                               
+
+@form_site.route('/createstoryhome', methods=['POST'])
+def newstory():
+    return render_template('create_story.html')
+
+@form_site.route('/createstory', methods=['POST', 'GET'])
+def create():
+    if 'user' in session:
+        title = request.form["title"]
+        line = request.form["firstline"]
+        last_entry = c.execute("SELECT * FROM stories WHERE ID = (SELECT MAX(ID) FROM stories);")
+        for value in last_entry:
+            id = value[0] + 1;
+            #print id
+            #successfully updates stories database
+        with db:
+            new_entry = c.execute("INSERT into stories VALUES ('%s','%s', '%s', 'new');" %(id, title, line))
+            flash("Your story was succesfully created!")
+    else:
+        flash("You must log in to create a story")
+    return redirect(url_for('welcome'))
+
 
 if __name__ == '__main__':
     form_site.debug = True
