@@ -1,25 +1,15 @@
 h1 {
     text-align: center;
 }
-body {
-    background-image: ; 
+body{
+    /* background-image: ; */
+    background-color: lightblue;
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100% 
 }
 
-nav.topBar li{
-    list-style: none;
-    float:left;
-    background-color: #333;
-    text-align:center; 
-}
-
-nav.topBar li:hover{
-    background-color: yellowgreen
-}
-
-.button {
+nav.topBar input[type=submit]{
     width: 140px;
     height: 40px;
     font: bold 12px Times;
@@ -31,6 +21,61 @@ nav.topBar li:hover{
     border-right: 1px solid #333333;
     border-left: 1px solid #cccccc;
     border-bottom: 1px solid #333333;
+    float:left;
+    background-color: #333;
+    text-align:center; 
 }
+
+nav.topBar input[type=submit]:hover{
+    background-color: yellowgreen
+}
+
+
+.transparentBox {
+    opacity: 0.5; 
+    filter: alpha(opacity(50));
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px; 
+}
+
+.titleField{
+    display:flex;
+    position:relative;
+    margin:4px auto;
+    width:26%;
+    flex-direction:row;
+    box-shadow: 1px 1px 0 red,
+        2px 2px 0 red,
+        3px 3px 0 red,
+        4px 4px 0 red,
+        5px 5px 0 red,
+        6px 6px 0 red,
+        7px 7px 0 red, 
+        8px 8px 0 red; 
+}
+
+.titleField input[type=text], .titleField input[type=button]{
+    display:block;
+    /*font:*/
+}
+
+.titleField input[type=text]{
+    flex:1;
+    padding:4px;
+    border: 2px solid rgb(168, 66, 66);
+    
+}
+
+.titleField input[type=submit]{
+    padding 2px 2px;
+    background-color:  rgb(114, 16, 16));
+    color: green;
+    border: none;
+}
+
+
 
 
