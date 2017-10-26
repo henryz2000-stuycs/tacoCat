@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<br>
+
+Select a story to view!
+<br>
+<i>{{previous}}</i>
+
+<div class="dropdown">
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    {{story_selection}}
+  </ul>
+</div>
+
+<form method="POST" id="form" action="/selectedstory">
+  <input type="submit" value="Submit">
+</form>
+
+
+{% endblock %}

@@ -198,6 +198,16 @@ def create():
     return redirect(url_for('welcome'))
 
 
+@form_site.route('/viewstories', methods = ['POST', 'GET'])
+def viewstory():
+    all_stories = c.execute("SELECT * FROM stories;")
+    htmlbody = "<li>"
+    for story in all_stories:
+        title = story[1]
+        htmlbody += "<a href='%s' %s </a></li>\n" %("null", title)
+    return render_template("view_stories.html", story_selection = htmlbody)
+
+
 if __name__ == '__main__':
     form_site.debug = True
     form_site.run()
