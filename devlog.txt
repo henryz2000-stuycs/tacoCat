@@ -10,3 +10,6 @@ added style.css which holds the not finished side bar
 henryZ -- 2017-10-25 01:25:19
 updated database structure. worked on edit story
 
+gordonL -- 2017-10-26 12:02:58
+updated stylesheet with better looking text field
+
