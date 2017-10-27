@@ -3,9 +3,37 @@
 
 A collaborative storytelling game/website.
 
-## Launch instructions
+## Dependencies
+* `from flask: Flask, render_template, request, session, redirect, url_for, flash`
+* `os`
+* `sqlite3`
+* `python2.7`
+
+## File Structure
+```
+db_builder.py
+login.py
+assets/
+ |  style.css
+templates/
+ |  base.html
+ |  create_story.html
+ |  display.html
+ |  edit_story.html
+ |  list.html
+ |  login.html
+ |  register.html
+ |  view_stories.html
+ |  welcome.html
+log.sh
+devlog.txt
+design.pdf
+README.md
+```
+
+## Launch Instructions
     
-1. Enter you terminal and cd into the location that you want to have this game
+1. Enter your terminal and go into the directory that you want to have this game in
 2. Enter this command to clone our repo
 ```
 https://github.com/henryz2000/tacoCat.git
