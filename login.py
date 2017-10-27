@@ -202,13 +202,21 @@ def create():
 
 @form_site.route('/viewstories', methods = ['POST', 'GET'])
 def viewstory():
+    story_dict = {}
     all_stories = c.execute("SELECT * FROM stories;")
-    htmlbody = "<li>"
     for story in all_stories:
-        title = story[1]
-        #htmlbody += "<a href='%s' %s </a></li>\" %("null", title)
-    return render_template("view_stories.html", story_selection = htmlbody)
+        story_dict[story[0]] = story[1]
+    #print story_dict
+    return render_template("view_stories.html", new = story_dict)
 
+@form_site.route('/display', methods = ['POST', 'GET'])
+def displaypage():
+    idnum = request.form.get('storyid')
+    storyinfo = c.execute("SELECT * FROM stories where ID = %s;" %(idnum)).fetchall()
+    title = storyinfo[0][1]
+    fullstory = storyinfo[0][2]
+    return render_template("display.html", title = title, story = fullstory) 
+    #return render_template("display.html", story = fullstory)
 
 if __name__ == '__main__':
     form_site.debug = True

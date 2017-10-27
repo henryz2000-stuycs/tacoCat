@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<br>
+This story is titled <b> {{title}} </b>
+<br>
+<br>
+
+{{story}}
+
+<br>
+<br>
+
+<form action="/welcome">
+  <input type="submit" value="Go Back Home">
+</form>
+
+<br>
+<form action="/viewstories">
+  <input type="submit" value="Go Back to Selection Page">
+</form>
+
+{% endblock %}

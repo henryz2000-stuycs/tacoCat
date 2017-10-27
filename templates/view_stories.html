@@ -8,22 +8,17 @@
 Select a story to view!
 <br>
 
-<form method="POST" action="/v">
-  {% for all in new.keys() %}
-  <!--{{ new[all] }}
-  <input type="submit" value={{ "%s" %(new[all]) }} name={{ "%s" %(new[all]) }}>
-  -->
-  <input type="submit" value={{ new[all].replace(" ", "_") }} name={{all}}>
-  <!--{{new[all]}}-->
+<form method="POST" action="/display">
+  {% for key in new.keys() %}
+  <input type="submit" value={{key}} name = "storyid" >
+  {{new[key]}}
+  <br>
   {% endfor %}
-
 </form>
 
-{% endblock %}
-
-
-<form method="POST" id="form" action="/selectedstory">
-  <input type="submit" value="Submit">
+<br> 
+<form action="/welcome">
+  <input type="submit" value="Go Back">
 </form>
 
 
