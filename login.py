@@ -133,17 +133,21 @@ def edit_story():
 
 @form_site.route('/choseneditstory', methods=['POST'])
 def chosen_edit_story():
-    #print request.form.keys()[0]
-    #print request.form.values()[0]
-    #print stories
-    #print stories[request.form.keys()[0]]
-    previous = stories[int(request.form.keys()[0])]["previousupdate"]
+    '''
+    print request.form.keys()
+    print request.form.values()
+    print request.form.keys()[0]
+    print request.form.values()[0]
+    print stories
+    print stories[request.form.keys()[0]]
+    '''
+    previous = stories[int(request.form.values()[0])]["previousupdate"]
     print previous
-    id = int(request.form.keys()[0])
+    id = int(request.form.values()[0])
     print "----------"
     print id
     print "----------"
-    return render_template("edit_story.html", id=id, title="Edit %s" %request.form.values()[0], previous=previous)
+    return render_template("edit_story.html", id=id, title="Edit %s" %stories[int(request.form.values()[0])]["title"], previous=previous)
 
 @form_site.route('/chooseeditstory', methods=['POST'])
 def choose_edit_story():

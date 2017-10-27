@@ -3,14 +3,23 @@
 
 {% block body %}
 
+<br>
+
+Select a story to edit!
+<br>
+
 <form method="POST" action="/choseneditstory">
-  {% for all in new.keys() %}
-  <!--{{ new[all] }}
-  <input type="submit" value={{ "%s" %(new[all]) }} name={{ "%s" %(new[all]) }}>
-  -->
-  <input type="submit" value={{ new[all].replace(" ", "_") }} name={{all}}>
-  <!--{{new[all]}}-->
+  {% for key in new.keys() %}
+  <input type="submit" value={{key}} name = "id" >
+  {{new[key]}}
+  <br>
   {% endfor %}
 </form>
+
+<br>
+<form action="/welcome">
+  <input type="submit" value="Go Back">
+</form>
+
 
 {% endblock %}
