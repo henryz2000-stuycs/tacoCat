@@ -18,3 +18,6 @@ updated create story, should be working correctly now
 
 henryZ -- 2017-10-26 14:12:06
 finished edit story
+gordonL -- 2017-10-26 22:49:07
+updated style sheet with pseudo-animations
+

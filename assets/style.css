@@ -27,21 +27,40 @@ nav.topBar input[type=submit]{
 }
 
 nav.topBar input[type=submit]:hover{
-    background-color: yellowgreen
+    background-color: yellowgreen;
 }
 
 
-.transparentBox {
-    opacity: 0.5; 
-    filter: alpha(opacity(50));
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px; 
+.viewStoryBox {
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    width: 1024px;
+    max-width: 85%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 35px;
+    font-family: OpenSans-Light;
+    border:5px solid lightgreen;
+    transition: border 0.5s;
 }
 
-.titleField{
+.viewStoryBox:hover{
+    border: 5px solid rgb(3, 66, 3)
+}
+
+.createTitleField{
+    display:flex;
+    position:relative;
+    margin:4px auto;
+    width:26%;
+    flex-direction:row;
+    box-shadow: 1px 1px 0 red;
+    transition: 1s ease; 
+}
+
+.createTitleField:hover{
     display:flex;
     position:relative;
     margin:4px auto;
@@ -56,26 +75,48 @@ nav.topBar input[type=submit]:hover{
         7px 7px 0 red, 
         8px 8px 0 red; 
 }
-
-.titleField input[type=text], .titleField input[type=button]{
+.createTitleField input[type=text], .createTitleField input[type=button]{
     display:block;
     /*font:*/
 }
 
-.titleField input[type=text]{
+.createTitleField input[type=text]{
     flex:1;
     padding:4px;
-    border: 2px solid rgb(168, 66, 66);
+    border: 4px solid rgb(168, 66, 66);
     
 }
 
-.titleField input[type=submit]{
+.createTitleField input[type=submit]{
     padding 2px 2px;
     background-color:  rgb(114, 16, 16));
+    border: 4px solid rgb(168, 66, 66);
     color: green;
     border: none;
 }
 
+.accountField{
+    padding: 10px;
+    border: none;
+    border-bottom: solid 3px #c9c9c9;
+    transition: border 0.25s ease;
+}
 
+.accountField:focus{
+    border: solid 5px #969696;
+}
 
+.accountField:hover:not(:focus){
+    border-bottom: solid 5px #969696;
+}
+
+.register{
+  display: block;
+  transtition: 3s;
+  -webkit-transition: 3s;
+}
+.register:hover, .register:focus{
+    box-shadow: inset 0 0 0 2em pink;
+    
+}
 
