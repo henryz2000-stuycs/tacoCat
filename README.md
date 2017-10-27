@@ -11,8 +11,8 @@ A collaborative storytelling game/website.
 
 ## File Structure
 ```
-db_builder.py
 login.py
+db_builder.py
 assets/
  |  style.css
 templates/
