@@ -222,12 +222,20 @@ def create():
 
 @form_site.route('/viewstories', methods = ['POST', 'GET'])
 def viewstory():
-    story_dict = {}
-    all_stories = c.execute("SELECT * FROM stories;")
-    for story in all_stories:
-        story_dict[story[0]] = story[1]
-    #print story_dict
-    return render_template("list.html", new = story_dict, action="view", actionurl = "/display")
+    stories = story_dict()
+    history = history_dict()
+    new = {}
+    if 'user' not in session:
+        flash("You must log in to view stories")
+        return redirect(url_for('welcome'))
+    else:
+        for story in stories:
+            if session['user'] in history[story].keys():
+                new[story] = stories[story]["title"]
+        if not new:
+            flash ("There are no stories to view (You may only view stories that you have edited before!)")
+
+        return render_template("list.html", new = new, action="view", actionurl = "/display")
 
 @form_site.route('/display', methods = ['POST', 'GET'])
 def displaypage():
