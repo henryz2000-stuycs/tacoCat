@@ -122,14 +122,14 @@ def edit_story():
     if "user" not in session:
         flash("You must login to edit story")
     else:
-        print "ID= " + request.form['id']
+        #print "ID= " + request.form['id']
         c.execute("INSERT INTO history VALUES (?, ?, ?)", (session['user'], request.form['id'], request.form['contribution']))
     #c.execute("DELETE FROM
-        print "##########################################################"
-        print stories[int(request.form['id'])]["fullstory"]
-        print request.form['contribution']
-        print stories[int(request.form['id'])]["fullstory"] + request.form['contribution']
-        print "##########################################################"
+        #print "##########################################################"
+        #print stories[int(request.form['id'])]["fullstory"]
+        #print request.form['contribution']
+        #print stories[int(request.form['id'])]["fullstory"] + request.form['contribution']
+        #print "##########################################################"
         c.execute("UPDATE stories SET fullstory=? WHERE id=?", (stories[int(request.form['id'])]["fullstory"] + " " + request.form['contribution'], request.form['id']))
         c.execute("UPDATE stories SET previousupdate=? WHERE id=?", (request.form['contribution'], request.form['id']))
         db.commit()
@@ -153,11 +153,11 @@ def chosen_edit_story():
         return redirect (url_for("welcome"))
     else:
         previous = stories[int(request.form.values()[0])]["previousupdate"]
-        print previous
+        #print previous
         id = int(request.form.values()[0])
-        print "----------"
-        print id
-        print "----------"
+        #print "----------"
+        #print id
+        #print "----------"
         return render_template("edit_story.html", id=id, title=stories[int(request.form.values()[0])]["title"], previous=previous)
 
 @form_site.route('/chooseeditstory', methods=['POST'])
@@ -233,7 +233,7 @@ def viewstory():
 @form_site.route('/display', methods = ['POST', 'GET'])
 def displaypage():
     idnum = request.form.get('id')
-    print idnum
+    #print idnum
     storyinfo = c.execute("SELECT * FROM stories where ID = ?", (idnum,)).fetchall()
     title = storyinfo[0][1]
     fullstory = storyinfo[0][2]
