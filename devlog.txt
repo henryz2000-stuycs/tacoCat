@@ -27,6 +27,6 @@ tweaked create page and finished view page
 
 henryZ -- 2017-10-27 17:07:59
 made edit stories look better
+
 angelicaZ -- 2017-10-29 19:02:33
 fixed issue where you cannot enter text with apostrophes/quotes, fixed issue where edit story list was not updating when a new story was added unless you restarted the window, removed redundant html template (view_stories.html -- just used list.html instead), made appearnances of view stories and edit stories match and added back buttons to all pages
-

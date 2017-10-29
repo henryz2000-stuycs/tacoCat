@@ -156,7 +156,6 @@ def chosen_edit_story():
         #print previous
         id = int(request.form.values()[0])
         #print "----------"
-        #print id
         #print "----------"
         return render_template("edit_story.html", id=id, title=stories[int(request.form.values()[0])]["title"], previous=previous)
 
@@ -237,7 +236,8 @@ def displaypage():
     storyinfo = c.execute("SELECT * FROM stories where ID = ?", (idnum,)).fetchall()
     title = storyinfo[0][1]
     fullstory = storyinfo[0][2]
-    return render_template("display.html", title = title, story = fullstory)
+
+    return render_template("display.html", title = title, story = fullstory, id = idnum)
     #return render_template("display.html", story = fullstory)
 
 if __name__ == '__main__':
