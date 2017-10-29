@@ -159,7 +159,7 @@ def chosen_edit_story():
         #print "----------"
         return render_template("edit_story.html", id=id, title=stories[int(request.form.values()[0])]["title"], previous=previous)
 
-@form_site.route('/chooseeditstory', methods=['POST'])
+@form_site.route('/chooseeditstory', methods=['POST', 'GET'])
 def choose_edit_story():
     stories = story_dict()
     history = history_dict()
