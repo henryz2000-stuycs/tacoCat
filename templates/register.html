@@ -4,9 +4,9 @@
 {% block body %}
 
     <form method="POST" action="/createaccount">
-      Username: <input type="text" name="user">
+      Username: <input type="text" name="user" required>
       <br>
-      Password: <input type="password" name="pw">
+      Password: <input type="password" name="pw" required>
       <br>
       <input type="submit" value="Register" name="submit">
     </form>
@@ -14,5 +14,5 @@
     <form action="/">
       <input type="submit" value="Back to Login Page">
     </form>
-    
+
 {% endblock %}

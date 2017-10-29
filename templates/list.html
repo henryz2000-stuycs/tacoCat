@@ -5,10 +5,10 @@
 
 <br>
 
-Select a story to edit!
-<br>
+Select a story to {{action}}!
+<br> <br> 
 
-<form method="POST" action="/choseneditstory">
+<form method="POST" action={{actionurl}}>
   {% for key in new.keys() %}
   <input type="submit" value={{key}} name = "id" >
   {{new[key]}}

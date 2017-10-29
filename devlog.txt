@@ -24,6 +24,6 @@ updated style sheet with pseudo-animations
 
 angelicaZ -- 2017-10-27 10:27:05
 tweaked create page and finished view page
+
 henryZ -- 2017-10-27 17:07:59
 made edit stories look better
-

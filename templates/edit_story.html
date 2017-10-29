@@ -3,10 +3,10 @@
 
 {% block body %}
 
-story_id:
-<textarea rows="2" cols="2" name="id" form="form" readonly="readonly">
-  {{id}}
-</textarea>
+You are now editing <b> {{title}} </b> (story_id: {{id}})
+
+<input type="hidden" name="id" form="form" value= {{id}}>
+
 <br>
 <br>
 
@@ -15,9 +15,18 @@ Previous line of story:
 <i>{{previous}}</i>
 <br>
 <br>
-<textarea rows="4" cols="50" placeholder="Enter next line of story here..." name="contribution" form="form"></textarea>
+<textarea rows="4" cols="50" placeholder="Enter next line of story here..." name="contribution" form="form" required></textarea>
 <form method="POST" id="form" action="/editstory">
   <input type="submit" value="Submit">
 </form>
 
+<br>
+
+<form action="/welcome">
+  <input type="submit" value="Go Back Home">
+</form>
+
+<form action="/chooseeditstory">
+  <input type="submit" value="Go Back to Selection Page">
+</form>
 {% endblock %}
