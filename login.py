@@ -130,7 +130,7 @@ def edit_story():
         #print request.form['contribution']
         #print stories[int(request.form['id'])]["fullstory"] + request.form['contribution']
         #print "##########################################################"
-        c.execute("UPDATE stories SET fullstory=? WHERE id=?", (stories[int(request.form['id'])]["fullstory"] + " " + request.form['contribution'], request.form['id']))
+        c.execute("UPDATE stories SET fullstory=? WHERE id=?", (stories[int(request.form['id'])]["fullstory"] + "\n" + request.form['contribution'], request.form['id']))
         c.execute("UPDATE stories SET previousupdate=? WHERE id=?", (request.form['contribution'], request.form['id']))
         db.commit()
         flash("Story edited.")
@@ -140,14 +140,14 @@ def edit_story():
 @form_site.route('/choseneditstory', methods=['POST'])
 def chosen_edit_story():
     stories = story_dict()
-    '''
-    print request.form.keys()
-    print request.form.values()
-    print request.form.keys()[0]
-    print request.form.values()[0]
-    print stories
-    print stories[request.form.keys()[0]]
-    '''
+
+    #print request.form.keys()
+    #print request.form.values()
+    #print request.form.keys()[0]
+    #print request.form.values()[0]
+    #print stories
+    #print stories[request.form.keys()[0]]
+
     if "user" not in session:
         flash("You must login to edit story")
         return redirect (url_for("welcome"))
@@ -169,13 +169,13 @@ def choose_edit_story():
         return redirect (url_for("welcome"))
     else:
         for story in stories.keys():
-            '''
-            print "===================="
-            print story
-            print session['user']
-            print history[story].keys()
-            print "===================="
-            '''
+
+            #print "===================="
+            #print story
+            #print session['user']
+            #print history[story].keys()
+            #print "===================="
+
             if session['user'] not in history[story].keys():
             #new[story] = stories[story]["title"].replace(" ", "_")
                     new[story] = stories[story]["title"]
@@ -199,6 +199,9 @@ def logout():
 
 @form_site.route('/createstoryhome', methods=['POST', 'GET'])
 def newstory():
+    if "user" not in session:
+        flash("You must login to create a story")
+        return redirect (url_for("welcome"))
     return render_template('create_story.html')
 
 @form_site.route('/createstory', methods=['POST', 'GET'])
@@ -239,6 +242,9 @@ def viewstory():
 
 @form_site.route('/display', methods = ['POST', 'GET'])
 def displaypage():
+    if 'user' not in session:
+        flash("You must log in to view stories")
+        return redirect(url_for('welcome'))
     idnum = request.form.get('id')
     #print idnum
     storyinfo = c.execute("SELECT * FROM stories where ID = ?", (idnum,)).fetchall()
