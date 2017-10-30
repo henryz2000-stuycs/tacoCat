@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<br>
+
+Select a story to view!
+<br>
+
+<form method="POST" action="/display">
+  {% for key in new.keys() %}
+  <input type="submit" value={{key}} name = "storyid" >
+  {{new[key]}}
+  <br>
+  {% endfor %}
+</form>
+
+<br> 
+<form action="/welcome">
+  <input type="submit" value="Go Back">
+</form>
+
+
+{% endblock %}

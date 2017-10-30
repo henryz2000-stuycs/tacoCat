@@ -3,7 +3,15 @@
 {% block body %}
 <body class = "welcome">
 <div class = "centerBox">
+<div class = "teamName">
 <h2>Welcome {{ user }}</h2>
+</div>
+<div class = "flash">
+    {% set messages = get_flashed_messages() %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+</div>
 </div>
 
 <div class = "optionBox">
@@ -15,7 +23,7 @@
     <input type="submit" name="createstory" value="Create Story!" class = "editStoryButton right button" formaction="/createstoryhome">
   </div>
   <br><br><br>
-  <div style = "float:right;">Edit a story you contributed in!
+  <div style = "float:right;">Edit a story!
       <input type="submit" name="editstory" value="Edit Stories!" class = "editStoryButton right button" formaction="/chooseeditstory">
   </div>
   <br><br><br>

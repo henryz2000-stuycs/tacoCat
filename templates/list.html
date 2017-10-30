@@ -2,24 +2,27 @@
 
 
 {% block body %}
-
+<body>
 <br>
-
+<div class="centerBox">
 Select a story to {{action}}!
+</div>
 <br> <br> 
 
+<div class = "welcomeTitle">
 <form method="POST" action={{actionurl}}>
   {% for key in new.keys() %}
-  <input type="submit" value={{key}} name = "id" >
+  <input type="submit" value={{key}} name = "id" class = "viewStory left button" >
   {{new[key]}}
-  <br>
+  <br><br><br>
   {% endfor %}
 </form>
-
 <br>
-<form action="/welcome">
-  <input type="submit" value="Go Back">
+<form action="/welcome" style = "border-top: 4px solid lightgreen">
+  <br>
+  <input type="submit" value="Go Back" class = "back left button">
 </form>
-
+</div>
+</body>
 
 {% endblock %}

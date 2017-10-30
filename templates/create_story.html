@@ -2,28 +2,29 @@
 
 
 {% block body %}
-
+<body class = "createStory" style="background-color:lightgreen" >
 <br>
-
+<div class = "viewStoryBox">
+<div class = "teamName">
 Create a new story!
+</div>
 <br>
 <i>{{previous}}</i>
 <br>
-<textarea rows="1" cols="50" placeholder="Story title" name="title" form="form" required >
+<textarea rows="1" cols="50" placeholder="Story title" name="title" form="form" style="display: block; margin: auto auto" required >
 </textarea>
-
 <br> <br>
 
-<textarea rows="4" cols="50" placeholder="First line of story" name="firstline" form="form" required>
+<textarea class="editText" rows="4" cols="50" placeholder="First line of story" name="firstline" form="form" required>
 </textarea>
-
-<br>
 <form method="POST" id="form" action="/createstory">
-  <input type="submit" value="Create!">
+  <input type="submit" value="Create!" class = "button right editStoryButton">
 </form>
+<br>
 
 <form action="/welcome">
-  <input type="submit" value="Go Back">
+  <input type="submit" value="Go Back" class = "back left button">
 </form>
-
+</div>
+</body>
 {% endblock %}

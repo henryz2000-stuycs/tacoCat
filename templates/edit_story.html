@@ -2,31 +2,27 @@
 
 
 {% block body %}
-
-You are now editing <b> {{title}} </b> (story id: {{id}})
-
+<body>
+<div class = "centerBox">
+You are now editing: <h1> {{title}} </h1>
+<h3>(story id: {{id}})</h3>
+</div>
 <input type="hidden" name="id" form="form" value= {{id}}>
-
 <br>
-<br>
-
+<div class = "viewStoryBox">
 Previous line of story:
 <br>
 <i>{{previous}}</i>
 <br>
 <br>
-<textarea maxlength="100" rows="4" cols="50" placeholder="Enter next line of story here... (Maximum of 100 characters)" name="contribution" form="form" required></textarea>
+<textarea maxlength="100" rows="4" cols="50" placeholder="Enter next line of story here... (Maximum of 100 characters)" name="contribution" form="form" class = "editText" required></textarea>
 <form method="POST" id="form" action="/editstory">
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" class ="right button selectStory">
 </form>
-
-<br>
-
-<form action="/welcome">
-  <input type="submit" value="Go Back Home">
+<form>
+  <input formmethod = "GET" formaction="/welcome" type="submit" value="Go Home" class = "left button back">
+  <input formmethod = "GET" formaction="/chooseeditstory" type="submit" value="View Stories" class = "left button back">
 </form>
-
-<form action="/chooseeditstory">
-  <input type="submit" value="Go Back to Selection Page">
-</form>
+</div>
+</body>
 {% endblock %}
