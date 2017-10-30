@@ -2,17 +2,21 @@
 
 
 {% block body %}
-
-    <form method="POST" action="/createaccount">
-      Username: <input type="text" name="user" required>
+  <body class = "root">
+      <img style="width: 240px; display: block; margin: 0 auto;" src = "{{ url_for('static',filename='images/tacoCat.png') }}">
+    <form method="POST" action="/createaccount" class ="accountBox">
+      <div class = "flash">
+          {% set messages = get_flashed_messages() %}
+          {% for message in messages %}
+          {{message}}
+          {% endfor %}
+        </div>
+      Username: <input type="text" name="user" class ="accountField" required>
       <br>
-      Password: <input type="password" name="pw" required>
+      Password: <input type="password" name="pw" class = "accountField" required>
       <br>
-      <input type="submit" value="Register" name="submit">
+      <input type="submit" value="Register" name="submit" class = "register right button">
+      <input type="submit" value="Back to Login Page" formaction="/" formmethod="get" class = "back left button">
     </form>
-
-    <form action="/">
-      <input type="submit" value="Back to Login Page">
-    </form>
-
+  </body>
 {% endblock %}

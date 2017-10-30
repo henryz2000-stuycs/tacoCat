@@ -1,21 +1,32 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h2>Welcome {{ user }} </h2>
+<body class = "welcome">
+<div class = "centerBox">
+<h2>Welcome {{ user }}</h2>
+</div>
 
-<form method="POST" action="/createstoryhome">
-  <input type="submit" name="createstory" value="Create a Story!">
+<div class = "optionBox">
+<p class = "teamName">
+  Click on any of the cool buttons below! 
+</p>
+<form method="POST" >
+  <div style = "float:right;">Create a new story!
+    <input type="submit" name="createstory" value="Create Story!" class = "editStoryButton right button" formaction="/createstoryhome">
+  </div>
+  <br><br><br>
+  <div style = "float:right;">Edit a story you contributed in!
+      <input type="submit" name="editstory" value="Edit Stories!" class = "editStoryButton right button" formaction="/chooseeditstory">
+  </div>
+  <br><br><br>
+  <div style = "float:right;">View full stories you contributed in!
+    <input type="submit" name="viewstory" value="View Stories!" class = "viewStory right button" formaction="/viewstories">
+  </div>
+  <br><br><br>
+  <div style = "float:right;">Logout!
+    <input type="submit" name="logout" value="Log Out" class = "logout right button" formaction="/logout">
+  </div>
 </form>
-
-<form method="POST" action="/chooseeditstory">
-  <input type="submit" name="editstory" value="Edit Stories!">
-</form>
-
-<form method = "POST" action="/viewstories">
-  <input type="submit" name="viewstory" value="View Full Stories!">
-</form>
-
-<form method="POST" action="/logout">
-  <input type="submit" name="logout" value="Log Out">
-</form>
+</div>
+</body>
 {% endblock %}

@@ -2,17 +2,42 @@
 
 
 {% block body %}
-
-    <form method="POST" action="/auth">
-      Username: <input type="text" name="user">
-      <br>
-      Password: <input type="password" name="pw">
-      <br>
-      <input type="submit" value="Login" name="submit">
-    </form>
-
-    <form action="/register">
-      <input type="submit" value="Register">
-    </form>
-    
+  <body class = "root">
+      <img style="width: 240px; display: block; margin: 0 auto;" src = "{{ url_for('static',filename='images/tacoCat.png') }}">
+    </div>
+      <div class = "centerBox">
+        <div class = "teamName">
+          Team Taco Cat
+        </div>
+        <div>
+          Henry Zheng + Angelica Zverovich + Gordon Lei
+        </div>
+        </div>
+      <div class = "welcomeTitle" style = "overflow:hidden">
+        <p class="teamName">
+          Welcome to Team TacoCat's Story Time Project!
+        </p>
+        <p>
+          Ever play the telephone game and wanted to try it online? <br>
+          Well look no further, Team TacoCat has created what you have been looking for! <br>
+          To use this, login or create an account and follow the instructions provided! <br>
+          
+        </p>
+        <div class = "accountBox" style = "overflow:hidden; float:right;" >
+        <form style ="float:right" method="POST" action="/auth">
+          <div class = "flash">
+              {% set messages = get_flashed_messages() %}
+              {% for message in messages %}
+              {{message}}
+              {% endfor %}
+          </div>
+          Username: <input type ="text" name= "user" class ="accountField" > <br>
+          Password : <input type ="text" name = "pw" class ="accountField">
+          <br>
+            <input type="submit" class = "login right button" value = "login">
+            <input type="submit" class = "register left button" formmethod="get" formaction="/register" value="Register">
+          </form>
+        </div>
+        </div>
+        </body>
 {% endblock %}
