@@ -65,7 +65,7 @@ def check_newuser(username):
         return BAD_USER
     return SUCCESS
 
-@form_site.route('/', methods=['Post', 'GET'])
+@form_site.route('/', methods=['POST', 'GET'])
 #login page if user is not in session, otherwise welcome
 def root():
     if 'user' not in session:
@@ -73,7 +73,7 @@ def root():
     else:
         return redirect( url_for('welcome') )
 
-@form_site.route('/register', methods=['Post', 'GET'])
+@form_site.route('/register', methods=['POST', 'GET'])
 #register page is user is not in session, otherwise root
 def register():
     if 'user' not in session:
@@ -114,7 +114,7 @@ def auth():
         flash("Incorrect Username.")
     return redirect(url_for('root'))
 
-@form_site.route('/welcome', methods=['Post', 'GET'])
+@form_site.route('/welcome', methods=['POST', 'GET'])
 #welcomes user or redirects back to root if logged out
 def welcome():
     if 'user' not in session:
