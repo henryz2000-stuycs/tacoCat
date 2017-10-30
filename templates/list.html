@@ -2,7 +2,7 @@
 
 
 {% block body %}
-<body>
+<body class = "list">
 <br>
 <div class="centerBox">
 Select a story to {{action}}!
@@ -10,6 +10,12 @@ Select a story to {{action}}!
 <br> <br> 
 
 <div class = "welcomeTitle">
+  <div class = "flash">
+      {% set messages = get_flashed_messages() %}
+      {% for message in messages %}
+      {{message}}
+      {% endfor %}
+  </div>
 <form method="POST" action={{actionurl}}>
   {% for key in new.keys() %}
   <input type="submit" value={{key}} name = "id" class = "viewStory left button" >

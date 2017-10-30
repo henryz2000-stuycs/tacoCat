@@ -4,19 +4,23 @@
 {% block body %}
   <body class = "root">
       <img style="width: 240px; display: block; margin: 0 auto;" src = "{{ url_for('static',filename='images/tacoCat.png') }}">
-    <form method="POST" action="/createaccount" class ="accountBox">
+      <div class = "accountBox">
+      <form method="POST" action="/createaccount">
       <div class = "flash">
           {% set messages = get_flashed_messages() %}
           {% for message in messages %}
           {{message}}
           {% endfor %}
         </div>
-      Username: <input type="text" name="user" class ="accountField" required>
+        Username: <input type="text" formmethod="post" name="user" class ="accountField" required>
       <br>
-      Password: <input type="password" name="pw" class= "accountField" required>
+      Password: <input type="password" formmethod="post" name="pw" class = "accountField" required>
       <br>
       <input type="submit" value="Register" name="submit" class = "register right button">
-      <input type="submit" value="Back to Login Page" formaction="/" formmethod="get" class = "back left button">
     </form>
+    <form style = "overflow:hidden" method = "POST" >
+      <input type="submit" value="Back to Login Page" formaction= "/" formmethod="post" class = "back left button">
+    </form>
+  </div>
   </body>
 {% endblock %}
