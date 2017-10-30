@@ -29,16 +29,16 @@ henryZ -- 2017-10-27 17:07:59
 made edit stories look better
 
 angelicaZ -- 2017-10-29 19:02:33
-fixed issue where you cannot enter text with apostrophes/quotes, fixed issue where edit story list was not updating when a new story was added unless you restarted the window, removed redundant html template (view_stories.html -- just used list.html instead), made appearnances of view stories and edit stories match and added back buttons to all pages
+fixed issue where you cannot enter text with apostrophes/quotes, fixed issue where edit story list was not updating when a new story was added unless you restarted the window, removed redundant html template (view_stories.html -- just used list.html instead), made appearances of view stories and edit stories match and added back buttons to all pages
 
 angelicaZ -- 2017-10-29 19:31:58
-fixed view story function to exculde stories you haven't edited yet
+fixed view story function to exclude stories you haven't edited yet
 
 angelicaZ -- 2017-10-29 20:09:17
-vmade it so that each line of the story prints on a new line
+made it so that each line of the story prints on a new line
+
 angelicaZ -- 2017-10-29 20:31:27
 created a character limit on editing stories
-
 
 gordonL -- 2017-10-29 20:47:51
 updated CSS file to final-ish  form (not final color scheme) and css-ify some templates
@@ -49,3 +49,5 @@ css-fyed templates
 gordonL -- 2017-10-29 23:28:33
 finalized style.css + templates css-fied + updated login.py to take both form methods
 
+angelicaZ -- 2017-10-30 03:46:01
+db stores hashed passwords instead of plain text

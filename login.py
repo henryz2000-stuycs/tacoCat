@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
-import os
-import sqlite3
+import os, sqlite3, hashlib
 
 SUCCESS = 1
 BAD_PASS = -1
@@ -10,6 +9,13 @@ form_site = Flask(__name__)
 form_site.secret_key = os.urandom(64)
 
 execfile("db_builder.py")
+
+def encrypt_password(password):
+    encrypted_pass = hashlib.sha1(password.encode('utf-8')).hexdigest()
+    return encrypted_pass
+
+def check_pass(encrypted, password):
+    return encrypted == encrypt_password(password)
 
 def user_dict():
     users = {} #{username: password}
@@ -80,7 +86,7 @@ def create_account():
     result = check_newuser(username)
     users = user_dict()
     if result == SUCCESS:
-        c.execute("INSERT INTO users VALUES (?, ?)", (username, password))
+        c.execute("INSERT INTO users VALUES (?, encrypt(?))", (username, password))
         db.commit()
         users[username] = password
         flash(username + " registered.")
@@ -90,11 +96,12 @@ def create_account():
         return redirect(url_for('register'))
     return redirect(url_for('root'))
 
-@form_site.route('/auth', methods=['POST', 'Get'])
+@form_site.route('/auth', methods=['POST', 'GET'])
 def auth():
     username = request.form['user']
     password = request.form['pw']
-    result = authenticate(username, password)
+    encrypted = encrypt_password(password)
+    result = authenticate(username, encrypted)
     if result == SUCCESS:
         session['user'] = username
         flash(session['user'] + " successfully logged in.")

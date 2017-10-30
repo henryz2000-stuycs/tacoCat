@@ -1,16 +1,22 @@
-import sqlite3   #enable control of an sqlite database
+import sqlite3, hashlib   #enable control of an sqlite database
 
 f="story.db"
 
+def encrypt_password(password):
+    encrypted_pass = hashlib.sha1(password.encode('utf-8')).hexdigest()
+    #print encrypted_pass
+    return encrypted_pass
+
 db = sqlite3.connect(f, check_same_thread=False) #open if f exists, otherwise create
+db.create_function('encrypt', 1, encrypt_password)
 c = db.cursor()    #facilitate db ops
 
 create_users = "CREATE TABLE users (username TEXT PRIMARY KEY, password TEXT NOT NULL);"
 create_history = "CREATE TABLE history (username TEXT NOT NULL, id INTEGER NOT NULL, contribution TEXT);"
 create_stories = "CREATE TABLE stories (id INTEGER PRIMARY KEY, title TEXT, fullstory TEXT NOT NULL, previousupdate TEXT NOT NULL);"
 
-insert_admin = "INSERT INTO users VALUES ('test', 'test');"
-insert_admin0 = "INSERT INTO users VALUES ('test0', 'test0');"
+insert_admin = "INSERT INTO users VALUES ('test', encrypt('test'));"
+insert_admin0 = "INSERT INTO users VALUES ('test0', encrypt('test0'));"
 insert_history = "INSERT INTO history VALUES ('test', 0, 'hi');"
 insert_history0 = "INSERT INTO history VALUES ('test0', 0, 'hi0');"
 insert_stories = "INSERT INTO stories VALUES (0, 'blah', 'hi\nhi0', 'hi0');"
