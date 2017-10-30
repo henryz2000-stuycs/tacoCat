@@ -1,0 +1,305 @@
+/* Backgrounds */
+body.root{
+    background-color: rgb(106, 106, 173);
+}
+
+body.welcome{
+    background-color: lightblue;
+}
+
+body.createStory{
+    background-color: lightgreen;
+}
+/* Navigation Bar */
+nav{
+    position: fixed;
+    top:0%;
+    width:100%;
+}
+nav.topBar input[type=submit]{
+    width: 140px;
+    height: 40px;
+    font: bold 12px Times;
+    text-decoration: none; 
+    background-color: #eeeeee;
+    color: #eeeeee;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #333333;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #333333;
+    float:left;
+    background-color: #333;
+    text-align:center; 
+}
+
+nav.topBar input[type=submit]:hover{
+    background-color: yellowgreen;
+    cursor: pointer;
+}
+
+
+/* Boxing stuff <div> */
+
+div form{
+    overflow:hidden;
+}
+
+.centerBox{
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    padding: 35px;
+    font-family: OpenSans-Light;
+    border:5px solid lightgreen;
+    width:25%;
+    text-align:center;
+    transition: 1s ease;
+}
+
+.teamName{
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid green;
+}
+
+.welcomeTitle{
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    width: 1024px;
+    margin:auto auto;
+    padding: 35px;
+    font-family: OpenSans-Light;
+    border:5px solid lightgreen;
+}
+
+
+.accountBox{
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin:auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid lightBlue;
+    transition: 1s ease;
+    text-align:center;
+    overflow:hidden;
+    width:30%;
+}
+
+.accountBox:hover{
+    border-color: cyan;
+}
+
+.viewStoryBox {
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    width: 1024px;
+    max-width: 85%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 35px;
+    font-family: OpenSans-Light;
+    border:5px solid lightgreen;
+    transition: border 1s ease;
+}
+
+.viewStoryBox:hover{
+    border: 5px solid rgb(3, 66, 3)
+}
+
+.createTitleField{
+    display:flex;
+    position:relative;
+    margin:4px auto;
+    width:30%;
+    flex-direction:row;
+    box-shadow: 1px 1px 0 red;
+    transition: 1s ease; 
+}
+.optionBox{
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    width:50%;
+    border-radius: 2px;
+    margin:auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid orange;
+    transition:1s ease;
+    
+    overflow:hidden;
+}
+
+.optionBox:hover{
+    border-color: red;
+}
+
+/* Create new Story */ 
+.createTitleField:hover{
+    display:flex;
+    position:relative;
+    margin:4px auto;
+    width:30%;
+    flex-direction:row;
+    box-shadow: 2px 2px 0 red,
+        4px 4px 0 red,
+        6px 6px 0 red,
+        8px 8px 0 red,
+        10px 10px 0 red,
+        12px 12px 0 red,
+        14px 14px 0 red, 
+        16px 16px 0 red, 
+        18px 18px 0 red,
+        20px 20px 0 red;
+}
+.createTitleField input[type=text], .createTitleField input[type=button]{
+    display:block;
+    /*font:*/
+}
+
+.createTitleField input[type=text]{
+    flex:1;
+    padding:4px;
+    border: 4px solid rgb(168, 66, 66);
+
+}
+
+.createTitleField input[type=submit]{
+    padding: 2px 2px;
+    background-color:  rgb(114, 16, 16);
+    border: 4px solid rgb(168, 66, 66);
+    color: green;
+    border: none;
+}
+
+/* Login Animations + Buttons */ 
+.left {
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
+.button{
+    width: 120px;
+    height: 40px;
+    font: bold 12px Times;
+    text-decoration: none; 
+    background-color: #eeeeee;
+    color: #eeeeee;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #333333;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #333333;
+    background-color: #333;
+    text-align:center; 
+}
+
+.accountField{
+    padding: 10px;
+    border: none;
+    border-bottom: solid 3px #c9c9c9;
+    transition: border 1s ease;
+}
+
+.accountField:focus{
+    border: solid 5px #969696;
+}
+
+.accountField:hover:not(:focus){
+    border-bottom: solid 5px #969696;
+}
+
+.register{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+.register:hover, .register:focus{
+    box-shadow: inset 0 0 0 2em pink;
+}
+
+/* Buttons */ 
+.login{
+    display: block;
+    transition: 1s ease; 
+    -webkit-transition: 1s ease;
+}
+
+.login:hover, .login:focus{
+    box-shadow: inset 4em 0 0 0 lightgreen, 
+        inset -4em 0 0 0 lightgreen;
+}
+
+.back{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+
+.back:hover, .back:focus{
+    box-shadow:inset -8em 0 0 0 pink;
+}
+
+.editStoryButton{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+.editStoryButton:hover, .editStoryButton:focus{
+    box-shadow: inset 0 -4em 0 0 pink;
+}
+
+.viewStory{
+    display:block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+
+.viewStory:hover, .viewStory:focus{
+    display: block;
+    box-shadow: inset 0 -4em 0 pink;
+}
+
+.selectStory{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+
+.selectStory:hover, .selectStory:focus{
+    box-shadow: inset 0 0 0 2em pink;
+}
+
+.logout{
+    display:block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+
+.logout:hover, .logout:focus{
+    display: block;
+    box-shadow: inset 0 4em 0 pink;
+}
+
+.editText{
+    width:95%;
+    border: 2px solid lightblue;
+    transition: 1s ease;
+}
+
+.editText:hover, .editText:focus{
+    border: 4px solid cyan;
+}
+
+/* Flash messages */ 
+.flash{
+    font-weight:bold;
+    text-align:center;
+}
