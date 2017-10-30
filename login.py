@@ -2,9 +2,6 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 import os
 import sqlite3
 
-#USER = 'DW'
-#PASS = 'n00b'
-
 SUCCESS = 1
 BAD_PASS = -1
 BAD_USER = -2
@@ -21,7 +18,6 @@ def user_dict():
         users[data[0]] = data[1]
     return users;
 
-#print users
 
 def history_dict():
     history = {} #{id: {username: contribution}}
@@ -34,7 +30,6 @@ def history_dict():
             history[data[1]] = {data[0]: data[2]}
     return history;
 
-#print history
 
 def story_dict():
     stories = {} #{id: {title: title, fullstory: fullstory, previousupdate: previousupdate}}
@@ -47,7 +42,6 @@ def story_dict():
         except:
             stories[data[0]] = {"title": data[1], "fullstory": data[2], "previousupdate": data[3]}
     return stories;
-#print stories
 
 def authenticate(username, password):
     users = user_dict()
@@ -58,7 +52,6 @@ def authenticate(username, password):
             return BAD_PASS
     else:
         return BAD_USER
-
 
 def check_newuser(username):
     users = user_dict()
@@ -78,7 +71,7 @@ def register():
     if 'user' not in session:
         return render_template('register.html', title="Register")
     else:
-        return redirect( url_for('welcome') )
+        return redirect( url_for('root') )
 
 @form_site.route('/createaccount', methods=['POST'])
 def create_account():
@@ -91,7 +84,7 @@ def create_account():
         db.commit()
         users[username] = password
         flash(username + " registered.")
-        return redirect( url_for('root') )
+        #return redirect( url_for('root') )
     elif result == BAD_USER:
         flash("That username is already in use. Try another one")
         return redirect(url_for('register'))
@@ -105,7 +98,7 @@ def auth():
     if result == SUCCESS:
         session['user'] = username
         flash(session['user'] + " successfully logged in.")
-        return redirect( url_for('welcome') )
+        #return redirect( url_for('welcome') )
     if result == BAD_PASS:
         flash("Incorrect password.")
     elif result == BAD_USER:
@@ -119,14 +112,14 @@ def welcome():
     else:
         return render_template('welcome.html', user=session['user'], title='Welcome')
 
-@form_site.route('/logout', methods=['POST'])
+@form_site.route('/logout')
 def logout():
     if 'user' in session:
         flash(session['user'] + " logged out.")
         session.pop('user')
     return redirect( url_for('root') )
 
-@form_site.route('/editstory', methods=['POST'])
+@form_site.route('/editstory', methods=['POST', 'GET'])
 def edit_story():
     #print request.form
     #print "TTTTTTTTT"
@@ -149,9 +142,9 @@ def edit_story():
         db.commit()
         flash("Story edited.")
     #INSERT FLASH HERE***************************************
-        return redirect( url_for('welcome') )
+    return redirect( url_for('root') )
 
-@form_site.route('/choseneditstory', methods=['POST'])
+@form_site.route('/choseneditstory', methods=['POST', 'GET'])
 def chosen_edit_story():
     stories = story_dict()
 
@@ -164,7 +157,7 @@ def chosen_edit_story():
 
     if "user" not in session:
         flash("You must login to edit story")
-        return redirect (url_for("welcome"))
+        return redirect (url_for("root"))
     else:
         previous = stories[int(request.form.values()[0])]["previousupdate"]
         #print previous
@@ -180,7 +173,7 @@ def choose_edit_story():
     new = {}
     if "user" not in session:
         flash("You must login to edit story")
-        return redirect (url_for("welcome"))
+        return redirect (url_for("root"))
     else:
         for story in stories.keys():
 
@@ -191,7 +184,6 @@ def choose_edit_story():
             #print "===================="
 
             if session['user'] not in history[story].keys():
-            #new[story] = stories[story]["title"].replace(" ", "_")
                     new[story] = stories[story]["title"]
         if not new:
             flash ("There are no new stories to edit (You may only edit stories that you have not created or edited before!)")
@@ -201,7 +193,7 @@ def choose_edit_story():
 def newstory():
     if "user" not in session:
         flash("You must login to create a story")
-        return redirect (url_for("welcome"))
+        return redirect (url_for("root"))
     return render_template('create_story.html')
 
 @form_site.route('/createstory', methods=['POST', 'GET'])
@@ -220,7 +212,7 @@ def create():
             c.execute("INSERT into stories VALUES (?, ?, ?, ?)", (id, title, line, line))
             c.execute("INSERT into history VALUES (?, ?, ?)", (session['user'], id, line))
         flash("Your story was succesfully created!")
-    return redirect(url_for('welcome'))
+    return redirect(url_for('root'))
 
 
 @form_site.route('/viewstories', methods = ['POST', 'GET'])
@@ -230,7 +222,7 @@ def viewstory():
     new = {}
     if 'user' not in session:
         flash("You must log in to view stories")
-        return redirect(url_for('welcome'))
+        return redirect(url_for('root'))
     else:
         for story in stories:
             if session['user'] in history[story].keys():
