@@ -43,3 +43,6 @@ created a character limit on editing stories
 gordonL -- 2017-10-29 20:47:51
 updated CSS file to final-ish  form (not final color scheme) and css-ify some templates
 
+gordonL -- 2017-10-29 22:05:13
+css-fyed templates
+

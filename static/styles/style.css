@@ -112,13 +112,13 @@ div form{
     border: 5px solid rgb(3, 66, 3)
 }
 
-.createTitleField{
+.enterTitle{
     display:flex;
     position:relative;
     margin:4px auto;
     width:30%;
     flex-direction:row;
-    box-shadow: 1px 1px 0 red;
+    box-shadow: 1px 1px 0 green;
     transition: 1s ease; 
 }
 .optionBox{
@@ -139,40 +139,42 @@ div form{
 }
 
 /* Create new Story */ 
-.createTitleField:hover{
+
+.enterTitle:hover{
     display:flex;
     position:relative;
     margin:4px auto;
     width:30%;
     flex-direction:row;
-    box-shadow: 2px 2px 0 red,
-        4px 4px 0 red,
-        6px 6px 0 red,
-        8px 8px 0 red,
-        10px 10px 0 red,
-        12px 12px 0 red,
-        14px 14px 0 red, 
-        16px 16px 0 red, 
-        18px 18px 0 red,
-        20px 20px 0 red;
+    box-shadow: 2px 2px 0 green,
+        4px 4px 0 green,
+        6px 6px 0 green,
+        8px 8px 0 green,
+        10px 10px 0 green,
+        12px 12px 0 green,
+        14px 14px 0 green, 
+        16px 16px 0 green, 
+        18px 18px 0 green,
+        20px 20px 0 green;
 }
-.createTitleField input[type=text], .createTitleField input[type=button]{
+
+.enterTitle input[type=text], .enterTitle input[type=button]{
     display:block;
     /*font:*/
 }
 
-.createTitleField input[type=text]{
+.enterTitle input[type=text]{
     flex:1;
     padding:4px;
-    border: 4px solid rgb(168, 66, 66);
+    border: 4px solid green;
 
 }
 
-.createTitleField input[type=submit]{
+.enterTitle input[type=submit]{
     padding: 2px 2px;
-    background-color:  rgb(114, 16, 16);
-    border: 4px solid rgb(168, 66, 66);
-    color: green;
+    background-color:  gray ;
+    border: 4px solid gray ;
+    color: black;
     border: none;
 }
 

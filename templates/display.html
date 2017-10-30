@@ -2,14 +2,14 @@
 
 
 {% block body %}
-
+<body>
 <br>
-This story is titled <b> {{title}} </b> (story id: {{id}})
-
-
+<div classs = "centerBox">
+<div class = "teamName">
+<h1>{{title}} </h1>
+<h3>story id: {{id}}</h3>
+</div>
 <br>
-<br>
-
 {% for line in lines %}
   {{line}} <br>
 {% endfor %}
@@ -18,12 +18,9 @@ This story is titled <b> {{title}} </b> (story id: {{id}})
 <br>
 
 <form action="/welcome">
-  <input type="submit" value="Go Back Home">
+  <input type="submit" value="Go to Home" class ="back left button">
+  <input formaction="/viewstories" formmethod="GET" type="submit" value="View Stories" class = "back right button">
 </form>
-
-<br>
-<form action="/viewstories">
-  <input type="submit" value="Go Back to Selection Page">
-</form>
-
+</div>
+</body>
 {% endblock %}
