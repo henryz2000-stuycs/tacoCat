@@ -27,6 +27,7 @@ templates/
  |  register.html
  |  welcome.html
 README.md
+changes.txt
 db_builder.py
 design.pdf
 devlog.txt
