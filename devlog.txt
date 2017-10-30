@@ -33,3 +33,6 @@ fixed issue where you cannot enter text with apostrophes/quotes, fixed issue whe
 angelicaZ -- 2017-10-29 19:31:58
 fixed view story function to exculde stories you haven't edited yet
 
+angelicaZ -- 2017-10-29 20:09:17
+evmade it so that each line of the story prints on a new line
+

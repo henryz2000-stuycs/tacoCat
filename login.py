@@ -250,8 +250,8 @@ def displaypage():
     storyinfo = c.execute("SELECT * FROM stories where ID = ?", (idnum,)).fetchall()
     title = storyinfo[0][1]
     fullstory = storyinfo[0][2]
-
-    return render_template("display.html", title = title, story = fullstory, id = idnum)
+    listy = fullstory.splitlines()
+    return render_template("display.html", title = title, story = fullstory, id = idnum, lines=listy)
     #return render_template("display.html", story = fullstory)
 
 if __name__ == '__main__':

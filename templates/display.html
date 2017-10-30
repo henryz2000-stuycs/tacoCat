@@ -10,7 +10,9 @@ This story is titled <b> {{title}} </b> (story id: {{id}})
 <br>
 <br>
 
-{{story}}
+{% for line in lines %}
+  {{line}} <br>
+{% endfor %}
 
 <br>
 <br>
