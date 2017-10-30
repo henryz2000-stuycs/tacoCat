@@ -7,6 +7,7 @@ A collaborative storytelling game/website.
 * `from flask: Flask, render_template, request, session, redirect, url_for, flash`
 * `os`
 * `sqlite3`
+* `hashlib`
 * `python2.7`
 
 ## File Structure
