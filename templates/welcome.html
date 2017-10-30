@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h2>Welcome {{ user }}</h2>
+<h2>Welcome {{ user }} </h2>
 
 <form method="POST" action="/createstoryhome">
   <input type="submit" name="createstory" value="Create a Story!">
@@ -12,7 +12,7 @@
 </form>
 
 <form method = "POST" action="/viewstories">
-  <input type="submit" name="viewstory" value="View Stories!">
+  <input type="submit" name="viewstory" value="View Full Stories!">
 </form>
 
 <form method="POST" action="/logout">

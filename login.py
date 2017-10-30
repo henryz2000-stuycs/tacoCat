@@ -93,7 +93,7 @@ def create_account():
         flash(username + " registered.")
         return redirect( url_for('root') )
     elif result == BAD_USER:
-        flash("Bad Username. Try another one")
+        flash("That username is already in use. Try another one")
         return redirect(url_for('register'))
     return redirect(url_for('root'))
 
@@ -104,13 +104,27 @@ def auth():
     result = authenticate(username, password)
     if result == SUCCESS:
         session['user'] = username
-        flash(session['user'] + " logged in.")
+        flash(session['user'] + " successfully logged in.")
         return redirect( url_for('welcome') )
     if result == BAD_PASS:
-        flash("Bad password.")
+        flash("Incorrect password.")
     elif result == BAD_USER:
         flash("Incorrect Username.")
     return redirect(url_for('root'))
+
+@form_site.route('/welcome')
+def welcome():
+    if 'user' not in session:
+        return redirect( url_for('root') )
+    else:
+        return render_template('welcome.html', user=session['user'], title='Welcome')
+
+@form_site.route('/logout', methods=['POST'])
+def logout():
+    if 'user' in session:
+        flash(session['user'] + " logged out.")
+        session.pop('user')
+    return redirect( url_for('root') )
 
 @form_site.route('/editstory', methods=['POST'])
 def edit_story():
@@ -182,20 +196,6 @@ def choose_edit_story():
         if not new:
             flash ("There are no new stories to edit (You may only edit stories that you have not created or edited before!)")
         return render_template('list.html', title="Edit Stories!", new=new, action="edit", actionurl = "/choseneditstory")
-
-@form_site.route('/welcome')
-def welcome():
-    if 'user' not in session:
-        return redirect( url_for('root') )
-    else:
-        return render_template('welcome.html', user=session['user'], title='Welcome')
-
-@form_site.route('/logout', methods=['POST'])
-def logout():
-    if 'user' in session:
-        flash(session['user'] + " logged out.")
-        session.pop('user')
-    return redirect( url_for('root') )
 
 @form_site.route('/createstoryhome', methods=['POST', 'GET'])
 def newstory():
