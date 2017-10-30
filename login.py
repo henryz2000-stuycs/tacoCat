@@ -112,7 +112,7 @@ def welcome():
     else:
         return render_template('welcome.html', user=session['user'], title='Welcome')
 
-@form_site.route('/logout')
+@form_site.route('/logout', methods=['POST'])
 def logout():
     if 'user' in session:
         flash(session['user'] + " logged out.")
