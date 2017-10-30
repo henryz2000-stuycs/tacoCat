@@ -51,3 +51,6 @@ finalized style.css + templates css-fied + updated login.py to take both form me
 
 angelicaZ -- 2017-10-30 03:46:01
 db stores hashed passwords instead of plain text
+
+angelicaZ -- 2017-10-30 04:14:35
+cleaned up intial test values for database a bit, seems fully functioning at this point
