@@ -1,0 +1,2 @@
+- change in database structure to allow for easier accessing and modifying of history and stories
+- a lot more detailed in terms of routes and pages
