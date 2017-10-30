@@ -27,7 +27,6 @@ def user_dict():
 def history_dict():
     history = {} #{id: {username: contribution}}
     history_data = c.execute("SELECT * FROM history;")
-
     for data in history_data:
         try:
             history[data[1]][data[0]] = data[2]
@@ -94,7 +93,6 @@ def create_account():
             c.execute("INSERT INTO users VALUES (?, encrypt(?))", (username, password))
         users[username] = password
         flash(username + " registered.")
-        #return redirect( url_for('root') )
     elif result == BAD_USER:
         flash("That username is already in use. Try another one")
         return redirect(url_for('register'))
@@ -110,7 +108,6 @@ def auth():
     if result == SUCCESS:
         session['user'] = username
         flash(session['user'] + " successfully logged in.")
-        #return redirect( url_for('welcome') )
     if result == BAD_PASS:
         flash("Incorrect password.")
     elif result == BAD_USER:

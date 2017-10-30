@@ -54,3 +54,6 @@ db stores hashed passwords instead of plain text
 
 angelicaZ -- 2017-10-30 04:14:35
 cleaned up intial test values for database a bit, seems fully functioning at this point
+
+angelicaZ -- 2017-10-30 04:52:16
+small appearance changes/nothing major --- still functioning correctly
