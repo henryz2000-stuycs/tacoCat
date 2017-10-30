@@ -11,10 +11,12 @@ A collaborative storytelling game/website.
 
 ## File Structure
 ```
-login.py
-db_builder.py
-assets/
- |  style.css
+static/
+  images/
+   |  tacoCat.png
+   |  tacoCatCursor.png
+  styles/
+   |  style.css
 templates/
  |  base.html
  |  create_story.html
@@ -23,12 +25,13 @@ templates/
  |  list.html
  |  login.html
  |  register.html
- |  view_stories.html
  |  welcome.html
-log.sh
-devlog.txt
-design.pdf
 README.md
+db_builder.py
+design.pdf
+devlog.txt
+log.sh
+login.py
 ```
 
 ## Launch Instructions
