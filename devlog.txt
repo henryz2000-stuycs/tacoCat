@@ -46,3 +46,6 @@ updated CSS file to final-ish  form (not final color scheme) and css-ify some te
 gordonL -- 2017-10-29 22:05:13
 css-fyed templates
 
+gordonL -- 2017-10-29 23:28:33
+finalized style.css + templates css-fied + updated login.py to take both form methods
+
