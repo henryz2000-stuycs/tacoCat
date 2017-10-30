@@ -59,21 +59,21 @@ def check_newuser(username):
         return BAD_USER
     return SUCCESS
 
-@form_site.route('/')
+@form_site.route('/', methods=['Post', 'GET'])
 def root():
     if 'user' not in session:
         return render_template('login.html', title="Login")
     else:
         return redirect( url_for('welcome') )
 
-@form_site.route('/register')
+@form_site.route('/register', methods=['Post', 'GET'])
 def register():
     if 'user' not in session:
         return render_template('register.html', title="Register")
     else:
         return redirect( url_for('root') )
 
-@form_site.route('/createaccount', methods=['POST'])
+@form_site.route('/createaccount', methods=['POST', 'GET'])
 def create_account():
     username = request.form['user']
     password = request.form['pw']
@@ -90,7 +90,7 @@ def create_account():
         return redirect(url_for('register'))
     return redirect(url_for('root'))
 
-@form_site.route('/auth', methods=['POST'])
+@form_site.route('/auth', methods=['POST', 'Get'])
 def auth():
     username = request.form['user']
     password = request.form['pw']
@@ -105,14 +105,14 @@ def auth():
         flash("Incorrect Username.")
     return redirect(url_for('root'))
 
-@form_site.route('/welcome')
+@form_site.route('/welcome', methods=['Post', 'GET'])
 def welcome():
     if 'user' not in session:
         return redirect( url_for('root') )
     else:
         return render_template('welcome.html', user=session['user'], title='Welcome')
 
-@form_site.route('/logout', methods=['POST'])
+@form_site.route('/logout', methods=['POST', "get"])
 def logout():
     if 'user' in session:
         flash(session['user'] + " logged out.")
