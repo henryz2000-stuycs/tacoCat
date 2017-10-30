@@ -36,3 +36,7 @@ fixed view story function to exculde stories you haven't edited yet
 
 angelicaZ -- 2017-10-29 20:09:17
 vmade it so that each line of the story prints on a new line
+angelicaZ -- 2017-10-29 20:31:27
+created a character limit on editing stories
+
+
