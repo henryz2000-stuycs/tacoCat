@@ -40,3 +40,6 @@ angelicaZ -- 2017-10-29 20:31:27
 created a character limit on editing stories
 
 
+gordonL -- 2017-10-29 20:47:51
+updated CSS file to final-ish  form (not final color scheme) and css-ify some templates
+
