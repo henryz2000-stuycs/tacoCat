@@ -16,7 +16,7 @@ create_history = "CREATE TABLE history (username TEXT NOT NULL, id INTEGER NOT N
 create_stories = "CREATE TABLE stories (id INTEGER PRIMARY KEY, title TEXT, fullstory TEXT NOT NULL, previousupdate TEXT NOT NULL);"
 
 insert_admin = "INSERT INTO users VALUES ('test', encrypt('test'));"
-insert_history = "INSERT INTO history VALUES ('user', 0, 'This is the first line of the sample story.');"
+insert_history = "INSERT INTO history VALUES ('test', 0, 'This is the first line of the sample story.');"
 insert_stories = "INSERT INTO stories VALUES (0, 'Sample Story', 'This is the first line of the sample story.', 'This is the first line of the sample story.');"
 
 #insert_admin0 = "INSERT INTO users VALUES ('test', encrypt('test'));"
