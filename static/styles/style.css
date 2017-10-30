@@ -10,6 +10,17 @@ body.welcome{
 body.createStory{
     background-color: lightgreen;
 }
+body.display{
+    background-color: violet;
+}
+
+body.editor{
+    background-color: rgb(55, 21, 133);
+}
+
+body.list{
+    background-color: rgb(132, 194, 34); 
+}
 /* Navigation Bar */
 nav{
     position: fixed;
@@ -58,6 +69,9 @@ div form{
     transition: 1s ease;
 }
 
+.centerBox:hover{
+    border: 5px solid cyan;
+}
 .teamName{
     text-align: center;
     font-weight: bold;
@@ -73,8 +87,12 @@ div form{
     padding: 35px;
     font-family: OpenSans-Light;
     border:5px solid lightgreen;
+    transition: 1s ease;
 }
 
+.welcomeTitle:hover{
+    border: 5px solid grey; 
+}
 
 .accountBox{
     background-color: white;
@@ -224,7 +242,8 @@ div form{
     -webkit-transition: 1s ease;
 }
 .register:hover, .register:focus{
-    box-shadow: inset 0 0 0 2em pink;
+    box-shadow: inset 0 0 0 4em pink;
+    color: #333;
 }
 
 /* Buttons */ 
@@ -235,8 +254,9 @@ div form{
 }
 
 .login:hover, .login:focus{
-    box-shadow: inset 4em 0 0 0 lightgreen, 
-        inset -4em 0 0 0 lightgreen;
+    box-shadow: inset 8em 0 0 0 lightgreen, 
+        inset -8em 0 0 0 lightgreen;
+        color: #333;
 }
 
 .back{
@@ -246,7 +266,8 @@ div form{
 }
 
 .back:hover, .back:focus{
-    box-shadow:inset -8em 0 0 0 pink;
+    box-shadow:inset -10em 0 0 0 pink;
+    color: #333;
 }
 
 .editStoryButton{
@@ -255,7 +276,8 @@ div form{
     -webkit-transition: 1s ease;
 }
 .editStoryButton:hover, .editStoryButton:focus{
-    box-shadow: inset 0 -4em 0 0 pink;
+    box-shadow: inset 0 -8em 0 0 pink;
+    color: #333;
 }
 
 .viewStory{
@@ -266,7 +288,8 @@ div form{
 
 .viewStory:hover, .viewStory:focus{
     display: block;
-    box-shadow: inset 0 -4em 0 pink;
+    box-shadow: inset 0 -8em 0 pink;
+    color: #333;
 }
 
 .selectStory{
@@ -276,7 +299,8 @@ div form{
 }
 
 .selectStory:hover, .selectStory:focus{
-    box-shadow: inset 0 0 0 2em pink;
+    box-shadow: inset 0 0 0 4em pink;
+    color: #333;
 }
 
 .logout{
@@ -288,18 +312,30 @@ div form{
 .logout:hover, .logout:focus{
     display: block;
     box-shadow: inset 0 4em 0 pink;
+    color: #333;
 }
 
 .editText{
     width:95%;
     border: 2px solid lightblue;
     transition: 1s ease;
+    color: #333;
 }
 
 .editText:hover, .editText:focus{
     border: 4px solid cyan;
+    color: #333;
 }
 
+.editBox{
+    border: 2px solid lightblue;
+    transition: 1s ease;
+}
+
+.editBox:hover, .editBox:focus{
+    border: 4px solid cyan;
+    color: #333;
+}
 /* Flash messages */ 
 .flash{
     font-weight:bold;
