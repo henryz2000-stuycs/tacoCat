@@ -41,7 +41,7 @@ login.py
 1. Enter your terminal and go into the directory that you want to have this game in
 2. Enter this command to clone our repo
 ```
-https://github.com/henryz2000/tacoCat.git
+git clone https://github.com/henryz2000/tacoCat.git
 ```
 3. Run your virtualenv from whereever you have it
 ```
